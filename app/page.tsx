@@ -1,112 +1,141 @@
 import Image from "next/image";
 
+import testPic from "@/public/img/testPic.webp";
+import testPic2 from "@/public/img/testPic2.webp";
+import testPic3 from "@/public/img/testPic3.webp";
+import testPic4 from "@/public/img/testPic4.webp";
+import testPic5 from "@/public/img/testPic5.jpg";
+import testPic6 from "@/public/img/testPic6.webp";
+import { dataMock } from "./mockdata";
+import HomeIcon from "@mui/icons-material/Home";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import StarHalfIcon from "@mui/icons-material/StarHalf";
+import PeopleIcon from "@mui/icons-material/People";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import Face3Icon from "@mui/icons-material/Face3";
+import Face4Icon from "@mui/icons-material/Face4";
+import Face5Icon from "@mui/icons-material/Face5";
+import Header from "@/components/header/View";
+import Link from "next/link";
+//#3b3b3b
 export default function Home() {
+  const tag = ["All", "Study", "Mixed", "Foods", "Sport", "Computer", "Funny"];
+
+  function generateRandomNumber() {
+    // Generate a random decimal between 0 (inclusive) and 1 (exclusive)
+    const randomDecimal = Math.random();
+
+    // Scale the random decimal to the range 1 to 6 (inclusive)
+    const randomNumber = Math.floor(randomDecimal * 6) + 1;
+
+    if (randomNumber === 1) {
+      return testPic;
+    } else if (randomNumber === 2) {
+      return testPic2;
+    } else if (randomNumber === 3) {
+      return testPic3;
+    } else if (randomNumber === 4) {
+      return testPic4;
+    } else if (randomNumber === 5) {
+      return testPic5;
+    } else if (randomNumber === 6) {
+      return testPic6;
+    }
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col">
+      <Header />
+      <div className=" w-full flex mt-[80px] h-full">
+        <div className="flex-col hidden md:flex w-1/4 md:w-1/5 xl:w-1/7 h-full gap-8 ">
+          <div className=" pl-2 pr-2 ">
+            <div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4  rounded-lg p-2  w-full">
+                <HomeIcon />
+                <span className="text-[14px] font-medium">Home</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <AutoStoriesIcon />
+                <span className="text-[14px] font-medium">Contents</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <StarHalfIcon />
+                <span className="text-[14px] font-medium">Favorite</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <PeopleIcon />
+                <span className="text-[14px] font-medium">Comunity</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <BookmarkBorderIcon />
+                <span className="text-[14px] font-medium">Bookmark</span>
+              </div>
+            </div>
+            <hr className="m-4 border-[#3b3b3b]" />
+            <div>
+              <span className="text-[16px]cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 font-semibold">
+                Follwer{" "}
+              </span>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <Face3Icon />
+                <span className="text-[14px] font-medium">Kite black</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <Face4Icon />
+                <span className="text-[14px] font-medium">Cockatoo</span>
+              </div>
+              <div className="flex mt-4 justify-start cursor-pointer hover:bg-[#3b3b3b] hover:border-[#3b3b3b] hover:border pl-4 gap-4 w-full rounded-lg p-2">
+                <Face5Icon />
+                <span className="text-[14px] font-medium">dark-winged</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className="p-4 md:p-0 w-full h-full">
+          <div className="overflow-hidden">
+            <ul className="flex gap-4 ">
+              {tag.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={`${
+                      item === "All" && "bg-white text-black font-bold "
+                    } cursor-pointer w-auto hover:bg-[#474747] h-[32px] pt-1 text-[14px] transition  font-normal flex justify-center items-center pb-1 pl-4 pr-4 border border-[#3b3b3b] rounded-md bg-[#3b3b3b]`}
+                  >
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 w-full mt-8">
+            {dataMock.map((item, index) => {
+              return (
+                <Link href={`/Content/${item.title}`} key={index}>
+                  <div className="w-auto cursor-pointer hover:bg-[#3b3b3b] hover:rounded-lg hover:transition ease-in-out duration-1000 ">
+                    <Image
+                      src={generateRandomNumber() || ""}
+                      alt="test"
+                      width={500}
+                      height={200}
+                      loading="lazy"
+                      className="rounded-lg"
+                    />
+                    <div className="leading-5 mt-2 p-2">
+                      <p className="text-[16px] font-medium">{item.title}</p>
+                      <p className="text-[14px] font-normal text-[#a6a6a6]">
+                        {item.creatore} create
+                      </p>
+                      <p className="text-[14px] font-normal text-[#a6a6a6]">
+                        {item.date}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </main>
   );
